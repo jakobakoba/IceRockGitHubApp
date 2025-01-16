@@ -1,4 +1,4 @@
-package com.bor96dev.icerockgithubapp.ui
+package com.bor96dev.icerockgithubapp.ui.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

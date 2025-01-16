@@ -1,4 +1,4 @@
-package com.bor96dev.icerockgithubapp.ui
+package com.bor96dev.icerockgithubapp.ui.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
