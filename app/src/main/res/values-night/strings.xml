@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auth_btn_sign_in_text">SIGN IN</string>
+    <string name="auth_input_hint_tv">Personal access token</string>
+</resources>
