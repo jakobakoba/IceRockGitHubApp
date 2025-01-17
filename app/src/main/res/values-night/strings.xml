@@ -5,4 +5,5 @@
     <string name="item_language_tv">Kotlin</string>
     <string name="item_project_tv">moko-web3</string>
     <string name="item_description_tv"><![CDATA[Ethereum Web3 implementation for mobile (android & ios) Kotlin Multiplatform development]]></string>
+    <string name="menu_sign_out">sign out</string>
 </resources>
