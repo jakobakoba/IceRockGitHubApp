@@ -18,6 +18,8 @@ lifecycle = "2.8.7"
 hilt = "2.51.1"
 ksp = "2.1.0-1.0.29"
 serializationJson = "1.8.0"
+gson = "2.11.0"
+moshi = "2.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -30,6 +32,11 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+gson = {group = "com.google.code.gson", name = "gson", version.ref = "gson"}
+moshi = {group = "com.squareup.moshi", name = "moshi", version.ref = "moshi"}
+moshi-factory = {group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi"}
+moshi-retrofit = {group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "moshi"}
+moshi-codegen = {group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshi"}
 
 navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigation" }
 navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigation" }

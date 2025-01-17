@@ -69,4 +69,10 @@ dependencies {
 
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
+
+    implementation(libs.gson)
+    implementation(libs.moshi)
+    implementation(libs.moshi.factory)
+    implementation(libs.moshi.retrofit)
+    ksp(libs.moshi.codegen)
 }
