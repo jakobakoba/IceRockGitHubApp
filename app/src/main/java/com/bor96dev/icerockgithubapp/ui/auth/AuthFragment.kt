@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.bor96dev.icerockgithubapp.R
 import com.bor96dev.icerockgithubapp.databinding.FragmentAuthBinding
 
 
@@ -20,6 +22,14 @@ class AuthFragment : Fragment() {
         _binding = FragmentAuthBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.authButton.setOnClickListener {
+            findNavController().navigate(R.id.action_authFragment_to_repositoriesListFragment)
+        }
     }
 
     override fun onDestroy() {
