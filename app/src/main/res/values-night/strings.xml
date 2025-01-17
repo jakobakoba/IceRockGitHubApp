@@ -2,4 +2,7 @@
 <resources>
     <string name="auth_btn_sign_in_text">SIGN IN</string>
     <string name="auth_input_hint_tv">Personal access token</string>
+    <string name="item_language_tv">Kotlin</string>
+    <string name="item_project_tv">moko-web3</string>
+    <string name="item_description_tv"><![CDATA[Ethereum Web3 implementation for mobile (android & ios) Kotlin Multiplatform development]]></string>
 </resources>
