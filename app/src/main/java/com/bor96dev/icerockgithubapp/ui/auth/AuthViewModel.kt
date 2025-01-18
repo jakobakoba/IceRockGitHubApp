@@ -1,5 +1,6 @@
 package com.bor96dev.icerockgithubapp.ui.auth
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,6 +16,9 @@ import javax.inject.Inject
 class AuthViewModel @Inject constructor(
     private val keyValueStorage: KeyValueStorage
 ) : ViewModel() {
+    init {
+        Log.d("GTA5", "INIT")
+    }
     val token = MutableLiveData<String>()
     private val _state = MutableLiveData<State>(State.Idle)
     val state: LiveData<State> = _state
