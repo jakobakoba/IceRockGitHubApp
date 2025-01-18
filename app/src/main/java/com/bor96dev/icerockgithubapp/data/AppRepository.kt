@@ -1,9 +1,11 @@
 package com.bor96dev.icerockgithubapp.data
 
-interface AppRepository {
+import com.bor96dev.icerockgithubapp.domain.Repo
 
-//    suspend fun getRepositories(): List<Repo>
-//
+interface AppRepository{
+
+    suspend fun getRepositories(): List<Repo>
+
 //    suspend fun getRepository(repoId: String): RepoDetails
 //
 //    suspend fun getRepositoryReadme(
