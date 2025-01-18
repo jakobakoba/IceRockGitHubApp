@@ -71,5 +71,4 @@ dependencies {
     ksp(libs.hilt.android.compiler)
 
     implementation(libs.gson)
-    implementation(libs.moshi.retrofit)
 }

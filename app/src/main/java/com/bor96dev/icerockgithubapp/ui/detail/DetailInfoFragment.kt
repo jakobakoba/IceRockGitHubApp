@@ -10,8 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.bor96dev.icerockgithubapp.R
 import com.bor96dev.icerockgithubapp.databinding.FragmentDetailInfoBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class DetailInfoFragment : Fragment() {
 
     private var _binding: FragmentDetailInfoBinding? = null

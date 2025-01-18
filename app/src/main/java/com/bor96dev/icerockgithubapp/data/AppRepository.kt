@@ -1,6 +1,5 @@
 package com.bor96dev.icerockgithubapp.data
 
-import com.bor96dev.icerockgithubapp.data.network.RepoService
 import com.bor96dev.icerockgithubapp.domain.Repo
 
 interface AppRepository{

@@ -14,9 +14,10 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.bor96dev.icerockgithubapp.R
 import com.bor96dev.icerockgithubapp.databinding.FragmentAuthBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class AuthFragment : Fragment() {
 
     private var _binding: FragmentAuthBinding? = null

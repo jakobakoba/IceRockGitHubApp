@@ -11,8 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.bor96dev.icerockgithubapp.R
 import com.bor96dev.icerockgithubapp.databinding.FragmentRepositoriesListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class RepositoriesListFragment : Fragment() {
 
     private var _binding: FragmentRepositoriesListBinding? = null

@@ -1,20 +1,17 @@
 package com.bor96dev.icerockgithubapp.data.network
 
 import com.bor96dev.icerockgithubapp.data.dto.RepoDto
-import com.bor96dev.icerockgithubapp.data.list_response.ReposListResponse
-import com.bor96dev.icerockgithubapp.data.repo_response.RepoDetailsResponse
-import retrofit2.Call
+import com.bor96dev.icerockgithubapp.domain.Repo
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
-import retrofit2.http.Path
 
 interface RepoService {
 
     @GET("/user/repos")
     suspend fun getRepos(
         @Header("Authorization") token: String?
-    ): Response<RepoDto>
+    ): List<RepoDto>
 
 
 //    @GET("/repos/{owner}/{repo}")
