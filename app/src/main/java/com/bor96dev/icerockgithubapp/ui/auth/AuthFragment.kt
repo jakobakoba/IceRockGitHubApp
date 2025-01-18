@@ -1,6 +1,7 @@
 package com.bor96dev.icerockgithubapp.ui.auth
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,22 +36,28 @@ class AuthFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d("GTA5", "onViewCreated auth")
 
         (activity as? AppCompatActivity)?.supportActionBar?.hide()
 
         binding.authButton.setOnClickListener {
+            Log.d("GTA5", "button is pressed")
             viewModel.onSignButtonPressed()
         }
         binding.textInputEditText.doOnTextChanged { text, _, _, _ ->
+            Log.d("GTA5", "text input: $text")
             viewModel.token.value = text.toString()
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.actions.collect { action ->
+                    Log.d("GTA5", "received action: $action")
                     when (action) {
                         is AuthViewModel.Action.RouteToMain -> {
+                            Log.d("GTA5", "navigate")
                             findNavController().navigate(R.id.action_authFragment_to_repositoriesListFragment)
+
                         }
 
                         is AuthViewModel.Action.ShowError -> {

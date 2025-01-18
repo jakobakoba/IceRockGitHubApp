@@ -10,7 +10,7 @@ class AppRepositoryImpl @Inject constructor(
     private val keyValueStorage: KeyValueStorage
 ) : AppRepository {
     override suspend fun getRepositories(): List<Repo> {
-        val token = keyValueStorage.authToken
+        val token = "Bearer ${keyValueStorage.authToken}"
         return repoService.getRepos(token).map { it.toRepo() }
     }
 

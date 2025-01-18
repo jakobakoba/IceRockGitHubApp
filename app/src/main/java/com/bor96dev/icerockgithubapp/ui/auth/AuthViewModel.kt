@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.bor96dev.icerockgithubapp.data.AppRepository
 import com.bor96dev.icerockgithubapp.data.KeyValueStorage
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -14,10 +15,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AuthViewModel @Inject constructor(
-    private val keyValueStorage: KeyValueStorage
+    private val keyValueStorage: KeyValueStorage,
+    private val appRepository: AppRepository
 ) : ViewModel() {
     init {
-        Log.d("GTA5", "INIT")
+        Log.d("GTA5", "INIT Auth")
     }
     val token = MutableLiveData<String>()
     private val _state = MutableLiveData<State>(State.Idle)
@@ -33,6 +35,8 @@ class AuthViewModel @Inject constructor(
             }
             _state.value = State.Loading
             keyValueStorage.authToken = token.value
+            val text = appRepository.getRepositories()
+            Log.d("GTA5", text.toString())
             _actions.emit(Action.RouteToMain)
         }
     }
