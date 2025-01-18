@@ -3,9 +3,11 @@ package com.bor96dev.icerockgithubapp.ui.auth
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 
+@HiltViewModel
 class AuthViewModel(): ViewModel() {
     val token = MutableLiveData<String>()
     private val _state = MutableLiveData<State>(State.Idle)
