@@ -28,10 +28,16 @@ class RepositoriesListViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val repos = appRepository.getRepositories()
-                Log.d("GTA5", "HELLO")
+                Log.d("GTA5", "SALAM")
                 Log.d("GTA5", repos.toString())
+                if (repos.isEmpty()) {
+                    _state.value = State.Empty
+                } else {
+                    _state.value = State.Loaded(repos)
+                }
             } catch (e: Exception) {
                 Log.d("GTA", "exception что то не так: $e")
+                _state.value = State.Error(e.message ?: "An unknown error occurred")
             }
         }
     }

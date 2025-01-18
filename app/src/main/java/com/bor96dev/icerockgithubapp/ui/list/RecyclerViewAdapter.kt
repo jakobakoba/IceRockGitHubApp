@@ -12,7 +12,13 @@ class RecyclerViewAdapter : RecyclerView.Adapter<ItemViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        return ItemViewHolder(ItemLayoutBinding.inflate(LayoutInflater.from(parent.context)))
+        return ItemViewHolder(
+            ItemLayoutBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {

@@ -70,6 +70,8 @@ class RepositoriesListFragment : Fragment() {
 
                         is RepositoriesListViewModel.State.Loaded -> {
                             adapter.setItems(state.repos)
+                            binding.progressBar.visibility = View.GONE
+                            binding.recyclerView.visibility = View.VISIBLE
                         }
 
                         is RepositoriesListViewModel.State.Error -> {

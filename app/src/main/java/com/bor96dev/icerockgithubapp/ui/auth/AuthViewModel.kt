@@ -35,8 +35,6 @@ class AuthViewModel @Inject constructor(
             }
             _state.value = State.Loading
             keyValueStorage.authToken = token.value
-            val text = appRepository.getRepositories()
-            Log.d("GTA5", text.toString())
             _actions.emit(Action.RouteToMain)
         }
     }
