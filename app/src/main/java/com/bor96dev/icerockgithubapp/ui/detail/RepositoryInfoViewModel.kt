@@ -3,6 +3,7 @@ package com.bor96dev.icerockgithubapp.ui.detail
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.bor96dev.icerockgithubapp.domain.Repo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -15,10 +16,10 @@ class RepositoryInfoViewModel @Inject constructor() : ViewModel() {
         object Loading: State
         data class Error(val error: String) : State
 
-//        data class Loaded (
-//            val githubRepo: Repo,
-//            val readmeState: ReadmeState
-//        ): State
+        data class Loaded(
+            val githubRepo: Repo,
+            val readmeState: ReadmeState
+        ) : State
     }
 
     sealed interface ReadmeState {

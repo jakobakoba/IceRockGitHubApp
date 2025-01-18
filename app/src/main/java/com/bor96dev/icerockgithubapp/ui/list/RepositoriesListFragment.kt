@@ -25,6 +25,7 @@ class RepositoriesListFragment : Fragment() {
     private var _binding: FragmentRepositoriesListBinding? = null
     private val binding get() = _binding!!
     private val viewModel: RepositoriesListViewModel by viewModels()
+    private lateinit var adapter: RecyclerViewAdapter
 
 
     override fun onCreateView(
@@ -50,7 +51,10 @@ class RepositoriesListFragment : Fragment() {
 
         (activity as? AppCompatActivity)?.supportActionBar?.title = "Repositories"
 
-        binding.recyclerviewButton.setOnClickListener {
+        adapter = RecyclerViewAdapter()
+        binding.recyclerView.adapter = adapter
+
+        binding.errorButton.setOnClickListener {
             Log.d("GTA5", "navigate to details")
             findNavController().navigate(R.id.action_repositoriesListFragment_to_detailInfoFragment)
         }
@@ -58,7 +62,38 @@ class RepositoriesListFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.observe(viewLifecycleOwner) { state ->
-                    Log.d("GTA5", "OBSERVING")
+                    when (state) {
+                        is RepositoriesListViewModel.State.Loading -> {
+                            binding.progressBar.visibility = View.VISIBLE
+                            binding.recyclerView.visibility = View.GONE
+                        }
+
+                        is RepositoriesListViewModel.State.Loaded -> {
+                            adapter.setItems(state.repos)
+                            binding.progressBar.visibility = View.GONE
+                            binding.recyclerView.visibility = View.VISIBLE
+                        }
+
+                        is RepositoriesListViewModel.State.Error -> {
+                            binding.imageError.setImageResource(R.drawable.internet_error)
+                            binding.recyclerView.visibility = View.GONE
+                            binding.titleError.text = "Connection error"
+                            binding.descriptionError.text = "Check your internet connection"
+                            binding.errorButton.visibility = View.VISIBLE
+                            binding.errorButton.text = "RETRY"
+                        }
+
+                        is RepositoriesListViewModel.State.Empty -> {
+                            binding.imageError.setImageResource(R.drawable.empty_error)
+                            binding.recyclerView.visibility = View.GONE
+                            binding.titleError.text = "Empty"
+                            binding.descriptionError.text = "No repositories at the moment"
+                            binding.errorButton.visibility = View.VISIBLE
+                            binding.errorButton.text = "REFRESH"
+
+                        }
+
+                    }
                 }
             }
         }
